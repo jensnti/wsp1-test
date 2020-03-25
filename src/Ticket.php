@@ -4,7 +4,11 @@ class Ticket
 {
 
     static function ticketPrice($age): int {
-        return 10;
+        if ($age < 18) {
+            return 10;
+        } else {
+            return 20;
+        }
     }
 
 }
