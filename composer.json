@@ -1,4 +1,7 @@
 {
+    "name": "wsp1-test",
+    "description": "Webbserverprogrammering 1, test med phpunit",
+    "license": "MIT",
     "autoload": {
         "classmap": [
             "src/"
