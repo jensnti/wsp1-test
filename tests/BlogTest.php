@@ -42,12 +42,33 @@ class BlogTest extends TestCase
     /** @test **/
     public function ItShouldBeAbleToCreateAPost()
     {
-      $blog = new BlogPost('author', 'body');
+      $blog = new BlogPost('Jens', 'Tweet');
 
       $this->assertEquals(
-        ['author', 'body'],
+        [0, 'Jens', 'Tweet'],
         $blog->getPost()
       );
     }
 
+    /** @test **/
+    public function userLaravelORM() {
+      $dbh = new DB();
+
+      $username = "Isak";
+      $dbh->query("INSERT INTO users (name) VALUES (?)", [$username]);
+
+      $userid = $dbh->connection->lastInsertId();
+      $testpost = "Sträng text";
+
+      $sql = "INSERT INTO posts (user_id, body) VALUES (? , ?)";
+      $values = [$userid,$testpost];
+      $dbh->query($sql, $values);
+
+      $blog = new BlogPost($username, $testpost, $userid);
+
+      $this->assertEquals(
+        $blog->user()['name'],
+        $username
+      );
+    }
 }

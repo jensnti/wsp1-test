@@ -32,7 +32,13 @@ class BlogPost
 
     public function user()
     {
-        return   $this->user;
+        $dbh = new DB();
+        $result = $dbh->query(
+            'SELECT * FROM users WHERE id = ?',
+            [$this->id]
+        );
+
+        return $result;
     }
 
 }
