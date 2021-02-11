@@ -2,6 +2,10 @@
 Kvalitetssäkring.
 Röd -> Grön -> Refaktor
 
+## Uppdatering 2021
+
+I blog branchen finns nytt material.
+
 ## PHPUnit
 https://phpunit.de/getting-started/phpunit-8.html
 
