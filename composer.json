@@ -11,6 +11,6 @@
         "phpunit/phpunit": "^8"
     },
     "scripts": {
-        "test": "vendor/bin/phpunit tests --colors=auto --verbose"
+        "test": "vendor/bin/phpunit tests --colors=auto --testdox"
     }
 }
