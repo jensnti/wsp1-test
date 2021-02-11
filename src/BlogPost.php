@@ -4,9 +4,11 @@ class BlogPost
 {
     private $body;
     private $author;
+    private $id;
 
-    public function __construct($author = '', $body = '')
+    public function __construct($author = '', $body = '', $id = 0)
     {
+        $this->id = $id;
         $this->author = $author;
         $this->body = $body;
     }
@@ -14,6 +16,7 @@ class BlogPost
     public function getPost()
     {
         return [
+            $this->id,
             $this->author,
             $this->body
         ];
@@ -25,6 +28,11 @@ class BlogPost
 
     public function __get($name) {
         return $this->$name;
+    }
+
+    public function user()
+    {
+        return   $this->user;
     }
 
 }
