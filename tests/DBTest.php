@@ -33,7 +33,7 @@ class DBTest extends TestCase
     public function can_create_post() {
       $dbh = new DB();
 
-      $sql = "INSERT INTO posts (user_id, body) VALUES (? , ?)";
+      $sql = "INSERT INTO posts (user_id, body, created_at, updated_at) VALUES (?,?, now(), now())";
       $values = [1,'Hej Jesper'];
 
       $dbh->query($sql, $values);
@@ -48,13 +48,13 @@ class DBTest extends TestCase
     public function can_update_post() {
       $dbh = new DB();
 
-      $sql = "INSERT INTO posts (user_id, body) VALUES (? , ?)";
+      $sql = "INSERT INTO posts (user_id, body, created_at, updated_at) VALUES (?,?,now(),now())";
       $values = [1,'Hej Jesper'];
       $dbh->query($sql, $values);
 
       $id = $dbh->connection->lastInsertId();
 
-      $sql = "UPDATE posts SET body = ? WHERE id = ?";
+      $sql = "UPDATE posts SET body = ?, updated_at = now() WHERE id = ?";
 
       $body = 'Hej Hampus';
 
